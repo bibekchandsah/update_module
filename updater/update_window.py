@@ -25,12 +25,17 @@ from .utils import get_app_dir, setup_logger
 
 def _window_icon() -> QIcon:
     """Return the app's icon.ico if found, otherwise an empty QIcon."""
+    import sys
     app_dir = get_app_dir()
-    for candidate in (
+    candidates = [
         app_dir / "icon.ico",
         app_dir.parent / "icon.ico",
         Path(__file__).parent.parent / "icon.ico",
-    ):
+    ]
+    # When frozen by PyInstaller (--onefile), bundled data lives in _MEIPASS
+    if hasattr(sys, "_MEIPASS"):
+        candidates.insert(0, Path(sys._MEIPASS) / "icon.ico")
+    for candidate in candidates:
         if candidate.exists():
             return QIcon(str(candidate))
     return QIcon()

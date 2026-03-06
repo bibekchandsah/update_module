@@ -141,8 +141,9 @@ def apply_exe_update(new_file: str, restart: bool = True) -> bool:
             creationflags=subprocess.CREATE_NO_WINDOW,
             close_fds=True,
         )
-        logger.info("Updater launched — application will exit")
-        return True
+        logger.info("Updater launched — exiting current process now")
+        # The app MUST exit so the PS1 helper can replace the locked exe file.
+        sys.exit(0)
     except OSError as exc:
         logger.error(f"Failed to launch PowerShell updater: {exc}")
         return False

@@ -11,6 +11,8 @@ git branch -M main
 git remote add origin https://github.com/bibekchandsah/update_module.git
 git push -u origin main
 
+pyinstaller --onefile --windowed --icon="icon.ico" --add-data "icon.ico;." --name "MyApp_v0.0.1" example_usage.py
+
 
 ⚙️ Update Workflow
 Update Check
@@ -45,6 +47,13 @@ Rollback Mechanism
     Keep a backup of the old version (BrightnessController_old.exe).
     If the new version fails to launch, automatically revert to the previous one.
 
+User Preferences
+Allow users to choose:
+    Silent updates (auto-install).
+    Prompted updates (ask before replacing).
+    Manual updates (disable auto-check).
+
+
 
 from updater import UpdateManager
 UpdateManager.initialize(
@@ -76,3 +85,4 @@ Add optional GitHub token support to config.py
 Pass the token as an Authorization header in github_api.py, and give a crystal-clear message when rate-limited including when the limit resets
     Unauthenticated = 60 req/hour. With a token = 5,000 req/hour.
 
+minimized download update
