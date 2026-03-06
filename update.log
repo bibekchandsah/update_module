@@ -1,0 +1,159 @@
+2026-03-06 11:53:36 [INFO    ] System tray icon initialised
+2026-03-06 11:53:36 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 11:53:36 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=username/repo | auto_update=True
+2026-03-06 11:53:39 [WARNING ] GITHUB_REPO is not configured — skipping update check
+2026-03-06 11:53:43 [WARNING ] GITHUB_REPO is not configured — skipping update check
+2026-03-06 11:53:58 [WARNING ] GITHUB_REPO is not configured — skipping update check
+2026-03-06 11:53:59 [WARNING ] GITHUB_REPO is not configured — skipping update check
+2026-03-06 11:56:34 [WARNING ] GITHUB_REPO is not configured — skipping update check
+2026-03-06 11:57:12 [INFO    ] System tray icon initialised
+2026-03-06 11:57:12 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 11:57:12 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 11:57:15 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 11:57:15 [ERROR   ] GitHub API HTTP error: 403 Client Error: rate limit exceeded for url: https://api.github.com/repos/bibekchandsah/brightness/releases
+2026-03-06 11:57:15 [INFO    ] No update available
+2026-03-06 11:57:16 [INFO    ] Tray notification: [Up to Date] You are running the latest version (v0.0.1)
+2026-03-06 12:01:33 [INFO    ] System tray icon initialised
+2026-03-06 12:01:33 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 12:01:33 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 12:01:36 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 12:01:37 [DEBUG   ] GitHub rate limit: 59/60 remaining
+2026-03-06 12:01:37 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 12:01:37 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 12:01:37 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 12:01:37 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 12:02:03 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:02:03 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:02:13 [INFO    ] Download complete: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:02:13 [INFO    ] Download finished: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:02:15 [INFO    ] Ready to install: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:02:15 [INFO    ] Installing update: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:02:15 [INFO    ] PowerShell updater written: D:\programming exercise\python\update module\_upd_helper.ps1
+2026-03-06 12:02:15 [INFO    ] Updater launched — application will exit
+2026-03-06 12:08:37 [INFO    ] System tray icon initialised
+2026-03-06 12:08:37 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 12:08:37 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 12:08:40 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 12:08:41 [DEBUG   ] GitHub rate limit: 50/60 remaining
+2026-03-06 12:08:41 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 12:08:41 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 12:08:41 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 12:08:41 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 12:08:46 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:08:46 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:08:54 [INFO    ] Download complete: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:08:54 [INFO    ] Download finished: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:09:28 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 12:09:29 [DEBUG   ] GitHub rate limit: 49/60 remaining
+2026-03-06 12:09:29 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 12:09:29 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 12:09:29 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 12:09:29 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 12:09:31 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:09:31 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:09:40 [INFO    ] Download complete: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:09:40 [INFO    ] Download finished: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:22:54 [INFO    ] System tray icon initialised
+2026-03-06 12:22:54 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 12:22:54 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 12:22:57 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 12:22:58 [DEBUG   ] GitHub rate limit: 42/60 remaining
+2026-03-06 12:22:58 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 12:22:58 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 12:22:58 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 12:22:58 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 12:23:26 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:23:26 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:23:28 [INFO    ] Download cancelled by user
+2026-03-06 12:23:28 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 12:23:28 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 12:23:40 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:23:40 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:23:49 [INFO    ] Download complete: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:23:49 [INFO    ] Download finished: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:28:30 [INFO    ] System tray icon initialised
+2026-03-06 12:28:30 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 12:28:30 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 12:28:33 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 12:28:33 [DEBUG   ] GitHub rate limit: 30/60 remaining
+2026-03-06 12:28:33 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 12:28:33 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 12:28:33 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 12:28:33 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 12:28:44 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:28:44 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:28:52 [INFO    ] Download complete: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:28:52 [INFO    ] Download finished: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:28:52 [INFO    ] Download ready: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:28:52 [INFO    ] Tray notification: [Update Downloaded] Click 'Restart to Update' in the tray to install
+2026-03-06 12:29:06 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:29:06 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:29:13 [INFO    ] Download cancelled by user
+2026-03-06 12:29:13 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 12:29:13 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 12:29:21 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 12:29:21 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 12:29:23 [INFO    ] Download cancelled by user
+2026-03-06 12:29:23 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 12:29:23 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 12:29:25 [INFO    ] Installing update: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:29:25 [INFO    ] PowerShell updater written: D:\programming exercise\python\update module\_upd_helper.ps1
+2026-03-06 12:29:25 [INFO    ] Updater launched — application will exit
+2026-03-06 12:29:46 [INFO    ] Installing update: D:\programming exercise\python\update module\updates\BrightnessController.exe
+2026-03-06 12:29:46 [INFO    ] PowerShell updater written: D:\programming exercise\python\update module\_upd_helper.ps1
+2026-03-06 12:29:46 [INFO    ] Updater launched — application will exit
+2026-03-06 13:19:34 [INFO    ] System tray icon initialised
+2026-03-06 13:19:34 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 13:19:34 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 13:19:37 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 13:19:38 [DEBUG   ] GitHub rate limit: 29/60 remaining
+2026-03-06 13:19:38 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 13:19:38 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 13:19:38 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 13:19:39 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 13:24:03 [INFO    ] System tray icon initialised
+2026-03-06 13:24:03 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 13:24:03 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 13:24:06 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 13:24:11 [DEBUG   ] GitHub rate limit: 20/60 remaining
+2026-03-06 13:24:11 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 13:24:11 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 13:24:11 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 13:24:11 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 13:26:28 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 13:26:32 [DEBUG   ] GitHub rate limit: 17/60 remaining
+2026-03-06 13:26:32 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 13:26:32 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 13:26:32 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 13:26:32 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 13:28:46 [INFO    ] System tray icon initialised
+2026-03-06 13:28:46 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 13:28:46 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/brightness | auto_update=True
+2026-03-06 13:28:49 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 13:28:51 [DEBUG   ] GitHub rate limit: 14/60 remaining
+2026-03-06 13:28:51 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 13:28:51 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 13:28:51 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 13:28:51 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 13:29:03 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 13:29:03 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 13:29:05 [INFO    ] Download cancelled by user
+2026-03-06 13:29:05 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 13:29:05 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 13:29:10 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 13:29:11 [DEBUG   ] GitHub rate limit: 12/60 remaining
+2026-03-06 13:29:11 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 13:29:11 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 13:29:11 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 13:29:11 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 14:36:35 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 14:36:36 [DEBUG   ] GitHub rate limit: 21/60 remaining
+2026-03-06 14:36:36 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 14:36:36 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 14:36:36 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 14:36:36 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 14:36:59 [INFO    ] Started download: BrightnessController.exe
+2026-03-06 14:36:59 [INFO    ] Download started: https://github.com/bibekchandsah/brightness/releases/download/v0.0.2/BrightnessController.exe
+2026-03-06 14:37:08 [INFO    ] Download cancelled by user
+2026-03-06 14:37:08 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 14:37:08 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'

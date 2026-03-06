@@ -1,0 +1,78 @@
+PyQt6
+module for update
+works on github 
+option for auto download, manually download, checkbox
+
+echo "# update_module" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/bibekchandsah/update_module.git
+git push -u origin main
+
+
+⚙️ Update Workflow
+Update Check
+On startup (or at intervals), your app queries the GitHub Releases API (or your update server).
+Compare the local version (e.g., v0.0.2) with the latest release tag.
+
+Download Latest File
+If a newer version exists, fetch the asset URL (e.g., BrightnessController.exe).
+Download it to a same location where current program is (update_temp.exe).
+
+Replace Old Program
+Since a running executable cannot overwrite itself, use a helper updater script:
+    The main app spawns a small updater process (batch file, PowerShell, or a tiny executable).
+    The updater waits until the main app exits.
+    It then replaces the old file with the new one.
+    Finally, it restarts the updated program.
+
+🔑 Key Points
+    Don’t overwrite while running → use a helper updater.
+    Rollback option → keep older versions accessible.
+
+
+Background Download & Seamless Swap
+    Download updates silently in the background while the app runs.
+    Only prompt the user when the update is ready, minimizing disruption.
+
+Atomic Replacement
+    Use a temporary staging folder (update_temp) and only swap files once the download is verified.
+    Prevents corruption if the update process is interrupted.
+
+Rollback Mechanism
+    Keep a backup of the old version (BrightnessController_old.exe).
+    If the new version fails to launch, automatically revert to the previous one.
+
+
+from updater import UpdateManager
+UpdateManager.initialize(
+    current_version = "v1.0.0",
+    repo            = "bibekchandsah/brightness",
+    github_token    = "ghp_yourtoken..." or "",
+    auto_update     = True,
+    auto_restart    = True,
+)
+
+ 
+
+
+
+Key features implemented
+Feature	                Detail
+One-line integration →     UpdateManager.initialize(current_version=…, repo=…)
+Non-blocking checks → 	GitHub API runs in a daemon thread, UI never freezes
+Live progress → 	percent · speed (MB/s) · ETA · downloaded/total
+Safe .exe update → 	PowerShell helper waits for app to exit → copies new binary → backs up old as .bak → restarts
+Zip update → 	Extract-and-merge with per-file .bak backup
+System tray → 	Programmatically drawn icon (no PNG needed), context menu, balloon notifications
+Auto/manual modes → 	auto_download, auto_restart, and manual "Check for Updates" button
+Periodic checks → 	QTimer fires every CHECK_INTERVAL_HOURS hours
+Update type badge → 	Detects and labels MAJOR / MINOR / PATCH updates
+Error handling → 	Network timeout, HTTP errors, file-system errors — all logged, never crash
+Logging → 	Writes update.log next to the app executable
+Add optional GitHub token support to config.py
+Pass the token as an Authorization header in github_api.py, and give a crystal-clear message when rate-limited including when the limit resets
+    Unauthenticated = 60 req/hour. With a token = 5,000 req/hour.
+
