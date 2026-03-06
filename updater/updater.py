@@ -1,5 +1,5 @@
-"""
-updater/updater.py — UpdateManager: the single entry-point for all update logic.
+﻿"""
+updater/updater.py â€” UpdateManager: the single entry-point for all update logic.
 
 Usage
 -----
@@ -44,17 +44,17 @@ class UpdateManager(QObject):
     update_downloaded(file_path: str)
     """
 
-    # ── Public signals ────────────────────────────────────────────────────────
+    # â”€â”€ Public signals â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     update_available  = pyqtSignal(str)   # latest version tag
     update_downloaded = pyqtSignal(str)   # local file path
 
-    # ── Internal signal (background thread → main thread) ─────────────────────
+    # â”€â”€ Internal signal (background thread â†’ main thread) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     _check_result = pyqtSignal(bool, object)   # (available, release_dict | None)
 
-    # ── Singleton ─────────────────────────────────────────────────────────────
+    # â”€â”€ Singleton â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     _instance: Optional["UpdateManager"] = None
 
-    # ── Construction (use initialize() instead) ───────────────────────────────
+    # â”€â”€ Construction (use initialize() instead) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def __init__(self):
         app = QApplication.instance()
@@ -77,6 +77,7 @@ class UpdateManager(QObject):
         self._latest_release   : Optional[Dict] = None
         self._downloaded_file  : Optional[str]  = None
         self._manual_check     : bool            = False  # True only for user-triggered checks
+        self._notify_enabled: bool            = True   # show tray balloon notifications
 
         self._tray             : Optional[UpdateTrayIcon]          = None
         self._timer            : Optional[QTimer]                  = None
@@ -86,7 +87,7 @@ class UpdateManager(QObject):
         # Wire the background-result signal to the main-thread handler
         self._check_result.connect(self._on_check_result)
 
-    # ── Public factory ────────────────────────────────────────────────────────
+    # â”€â”€ Public factory â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @classmethod
     def initialize(
@@ -101,12 +102,14 @@ class UpdateManager(QObject):
         check_interval_hours : Optional[int]  = None,
         asset_filename       : Optional[str]  = None,
         enable_tray          : bool           = True,
+        show_notification    : bool           = True,
     ) -> "UpdateManager":
         """
         Initialise (or return) the singleton UpdateManager.
 
         All parameters are optional; omit any to use the value in config.py.
         Pass ``github_token`` here so you never need to edit the updater folder.
+        Set ``show_notification=False`` to suppress all tray balloon messages.
         """
         if cls._instance is None:
             cls._instance = cls()
@@ -126,6 +129,8 @@ class UpdateManager(QObject):
         if github_token is not None:
             _cfg.GITHUB_TOKEN = github_token
 
+        mgr._notify_enabled = show_notification
+
         if enable_tray:
             mgr._setup_tray()
 
@@ -142,7 +147,7 @@ class UpdateManager(QObject):
         )
         return mgr
 
-    # ── Internal setup ────────────────────────────────────────────────────────
+    # â”€â”€ Internal setup â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def _setup_tray(self) -> None:
         try:
@@ -163,7 +168,7 @@ class UpdateManager(QObject):
                 f"Periodic check scheduled every {self._interval_hours} hour(s)"
             )
 
-    # ── Update check (public + scheduled) ─────────────────────────────────────
+    # â”€â”€ Update check (public + scheduled) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def check_for_updates(self, manual: bool = False) -> None:
         """
@@ -173,11 +178,11 @@ class UpdateManager(QObject):
         notification is shown; auto/periodic checks are silent when up to date.
         """
         if self._repo == "username/repo":
-            logger.warning("GITHUB_REPO is not configured — skipping update check")
+            logger.warning("GITHUB_REPO is not configured â€” skipping update check")
             return
 
         self._manual_check = manual
-        logger.info(f"Checking for updates… (current={self._current_version})")
+        logger.info(f"Checking for updatesâ€¦ (current={self._current_version})")
         threading.Thread(
             target=self._check_worker,
             daemon=True,
@@ -185,7 +190,7 @@ class UpdateManager(QObject):
         ).start()
 
     def _check_worker(self) -> None:
-        """Runs in background thread — must only emit signals, not touch widgets."""
+        """Runs in background thread â€” must only emit signals, not touch widgets."""
         try:
             available, release = is_update_available(
                 self._current_version,
@@ -198,10 +203,10 @@ class UpdateManager(QObject):
             self._check_result.emit(False, None)
 
     def _on_check_result(self, available: bool, release: Optional[Dict]) -> None:
-        """Runs on the main thread — safe to update UI."""
+        """Runs on the main thread â€” safe to update UI."""
         if not available or release is None:
             logger.info("No update available")
-            if self._manual_check and self._tray:
+            if self._manual_check and self._notify_enabled and self._tray:
                 self._tray.notify(
                     "Up to Date",
                     f"You are running the latest version ({self._current_version})",
@@ -218,17 +223,18 @@ class UpdateManager(QObject):
 
         if self._tray:
             self._tray.set_update_available(latest_version, release_url)
-            self._tray.notify(
-                "Update Available",
-                f"Version {latest_version} is ready to download",
-            )
+            if self._notify_enabled:
+                self._tray.notify(
+                    "Update Available",
+                    f"Version {latest_version} is ready to download",
+                )
 
         if self._auto_download:
             self._open_download_window(minimized=True)
         else:
             self._show_notification(latest_version, utype)
 
-    # ── Notification dialog ───────────────────────────────────────────────────
+    # â”€â”€ Notification dialog â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def _show_notification(self, latest_version: str, utype: str) -> None:
         if not self._latest_release:
@@ -244,12 +250,12 @@ class UpdateManager(QObject):
         self._notif_dlg.show()
         self._notif_dlg.raise_()
 
-    # ── Download window ───────────────────────────────────────────────────────
+    # â”€â”€ Download window â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def _open_download_window(self, minimized: bool = False) -> None:
         if not self._latest_release:
-            logger.warning("No release info — cannot start download")
-            if self._tray:
+            logger.warning("No release info â€” cannot start download")
+            if self._notify_enabled and self._tray:
                 self._tray.notify(
                     "Update Error",
                     "No release information. Please check for updates first.",
@@ -259,7 +265,7 @@ class UpdateManager(QObject):
         asset = find_asset(self._latest_release, self._asset_filename)
         if not asset:
             logger.error("No downloadable asset found in the release")
-            if self._tray:
+            if self._notify_enabled and self._tray:
                 self._tray.notify(
                     "Update Error",
                     "No downloadable file was found in this release.",
@@ -285,17 +291,17 @@ class UpdateManager(QObject):
             self._dl_window.show()
         self._dl_window.start_download()
 
-    # ── Post-download / install ───────────────────────────────────────────────
+    # â”€â”€ Post-download / install â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def _on_download_finished(self, file_path: str) -> None:
-        """Called as soon as the file lands on disk — update tray immediately."""
+        """Called as soon as the file lands on disk â€” update tray immediately."""
         self._downloaded_file = file_path
         self.update_downloaded.emit(file_path)
         logger.info(f"Download ready: {file_path}")
 
         if self._tray:
             self._tray.set_download_ready()
-            if not self._auto_restart:
+            if self._notify_enabled and not self._auto_restart:
                 self._tray.notify(
                     "Update Downloaded",
                     "Click 'Restart to Update' in the tray to install",
@@ -315,18 +321,18 @@ class UpdateManager(QObject):
         # user has either clicked "Install & Restart" or "Restart to Update",
         # so the new binary must always be launched after replacement.
         # (auto_restart only controls whether install is triggered automatically
-        # vs waiting for the user — not whether to relaunch after install.)
+        # vs waiting for the user â€” not whether to relaunch after install.)
         success = install_update(self._downloaded_file, restart=True)
         if not success:
             logger.error("Installation failed")
-            if self._tray:
+            if self._notify_enabled and self._tray:
                 self._tray.notify(
                     "Update Failed",
-                    "Install failed — please download and update manually.",
+                    "Install failed â€” please download and update manually.",
                 )
 
-    # ── Manual helpers ────────────────────────────────────────────────────────
+    # â”€â”€ Manual helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     def manual_check(self) -> None:
-        """Convenience alias — trigger an update check programmatically."""
+        """Convenience alias â€” trigger an update check programmatically."""
         self.check_for_updates(manual=True)

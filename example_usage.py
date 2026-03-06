@@ -16,7 +16,7 @@ from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QPushButton, QVBo
 from updater import UpdateManager
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-CURRENT_VERSION = "v0.0.1"
+CURRENT_VERSION = "v0.0.2"
 GITHUB_REPO     = "bibekchandsah/testing"   # ← change to your GitHub repo
 
 
@@ -58,11 +58,12 @@ def main():
         repo                 = GITHUB_REPO,
         github_token         = "",      # optional — set to avoid 403 rate-limit errors
         auto_update          = True,    # check on startup
-        auto_download        = False,    # ask user before downloading
+        auto_download        = False,   # ask user before downloading
         auto_restart         = False,   # restart automatically after download
         check_interval_hours = 6,       # re-check every 6 hours
         allow_prerelease     = False,
         enable_tray          = True,
+        show_notification    = True,    # show tray balloon notifications
     )
 
     # Optional: react to update events from your own code
