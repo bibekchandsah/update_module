@@ -219,7 +219,7 @@ class UpdateManager(QObject):
             )
 
         if self._auto_download:
-            self._open_download_window()
+            self._open_download_window(minimized=True)
         else:
             self._show_notification(latest_version, utype)
 
@@ -241,7 +241,7 @@ class UpdateManager(QObject):
 
     # ── Download window ───────────────────────────────────────────────────────
 
-    def _open_download_window(self) -> None:
+    def _open_download_window(self, minimized: bool = False) -> None:
         if not self._latest_release:
             logger.warning("No release info — cannot start download")
             if self._tray:
@@ -274,7 +274,10 @@ class UpdateManager(QObject):
         )
         self._dl_window.download_finished.connect(self._on_download_finished)
         self._dl_window.install_ready.connect(self._on_install_triggered)
-        self._dl_window.show()
+        if minimized:
+            self._dl_window.showMinimized()
+        else:
+            self._dl_window.show()
         self._dl_window.start_download()
 
     # ── Post-download / install ───────────────────────────────────────────────
