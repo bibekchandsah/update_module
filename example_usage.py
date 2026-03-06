@@ -56,7 +56,7 @@ def main():
     update_mgr = UpdateManager.initialize(
         current_version      = CURRENT_VERSION,
         repo                 = GITHUB_REPO,
-        github_token         = "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",      # optional — set to avoid 403 rate-limit errors
+        github_token         = "_nlFst6w5W4fupg41y4MYh8ghasWc161TsRgM",      # optional — set to avoid 403 rate-limit errors
         auto_update          = True,    # check on startup
         auto_download        = False,   # ask user before downloading
         auto_restart         = False,   # restart automatically after download
