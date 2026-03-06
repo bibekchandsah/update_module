@@ -303,7 +303,12 @@ class UpdateManager(QObject):
             logger.warning("Install requested but no file is ready")
             return
         logger.info(f"Installing update: {self._downloaded_file}")
-        success = install_update(self._downloaded_file, restart=self._auto_restart)
+        # Always restart=True here: by the time _do_install() is called the
+        # user has either clicked "Install & Restart" or "Restart to Update",
+        # so the new binary must always be launched after replacement.
+        # (auto_restart only controls whether install is triggered automatically
+        # vs waiting for the user — not whether to relaunch after install.)
+        success = install_update(self._downloaded_file, restart=True)
         if not success:
             logger.error("Installation failed")
             if self._tray:

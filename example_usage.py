@@ -17,7 +17,7 @@ from updater import UpdateManager
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 CURRENT_VERSION = "v0.0.1"
-GITHUB_REPO     = "bibekchandsah/brightness"   # ← change to your GitHub repo
+GITHUB_REPO     = "bibekchandsah/testing"   # ← change to your GitHub repo
 
 
 # ── Main window ───────────────────────────────────────────────────────────────
@@ -56,7 +56,7 @@ def main():
     update_mgr = UpdateManager.initialize(
         current_version      = CURRENT_VERSION,
         repo                 = GITHUB_REPO,
-        github_token         = "_nlFst6w5W4fupg41y4MYh8ghasWc161TsRgM",      # optional — set to avoid 403 rate-limit errors
+        github_token         = "",      # optional — set to avoid 403 rate-limit errors
         auto_update          = True,    # check on startup
         auto_download        = False,   # ask user before downloading
         auto_restart         = False,   # restart automatically after download

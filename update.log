@@ -157,3 +157,18 @@
 2026-03-06 14:37:08 [INFO    ] Download cancelled by user
 2026-03-06 14:37:08 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
 2026-03-06 14:37:08 [ERROR   ] Download failed: File system error: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\programming exercise\\python\\update module\\updates\\BrightnessController.exe.part'
+2026-03-06 16:56:33 [INFO    ] System tray icon initialised
+2026-03-06 16:56:33 [INFO    ] Periodic check scheduled every 6 hour(s)
+2026-03-06 16:56:33 [INFO    ] UpdateManager ready | version=v0.0.1 | repo=bibekchandsah/testing | auto_update=True
+2026-03-06 16:56:36 [INFO    ] Checking for updates… (current=v0.0.1)
+2026-03-06 16:56:39 [DEBUG   ] GitHub rate limit: 4967/5000 remaining
+2026-03-06 16:56:39 [INFO    ] Latest suitable release: v0.0.2
+2026-03-06 16:56:39 [INFO    ] Update available: v0.0.1 → v0.0.2
+2026-03-06 16:56:39 [INFO    ] Update found: v0.0.2 (patch)
+2026-03-06 16:56:39 [INFO    ] Tray notification: [Update Available] Version v0.0.2 is ready to download
+2026-03-06 16:56:41 [INFO    ] Started download: autodownload.msi
+2026-03-06 16:56:41 [INFO    ] Download started: https://github.com/bibekchandsah/testing/releases/download/v0.0.2/autodownload.msi
+2026-03-06 16:57:03 [INFO    ] Download complete: D:\programming exercise\python\update module\updates\autodownload.msi
+2026-03-06 16:57:03 [INFO    ] Download finished: D:\programming exercise\python\update module\updates\autodownload.msi
+2026-03-06 16:57:03 [INFO    ] Download ready: D:\programming exercise\python\update module\updates\autodownload.msi
+2026-03-06 16:57:03 [INFO    ] Tray notification: [Update Downloaded] Click 'Restart to Update' in the tray to install
