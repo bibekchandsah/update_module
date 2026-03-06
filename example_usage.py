@@ -58,7 +58,7 @@ def main():
         repo                 = GITHUB_REPO,
         github_token         = "",      # optional — set to avoid 403 rate-limit errors
         auto_update          = True,    # check on startup
-        auto_download        = False,   # ask user before downloading
+        auto_download        = False,    # ask user before downloading
         auto_restart         = False,   # restart automatically after download
         check_interval_hours = 6,       # re-check every 6 hours
         allow_prerelease     = False,

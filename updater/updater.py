@@ -76,6 +76,7 @@ class UpdateManager(QObject):
 
         self._latest_release   : Optional[Dict] = None
         self._downloaded_file  : Optional[str]  = None
+        self._manual_check     : bool            = False  # True only for user-triggered checks
 
         self._tray             : Optional[UpdateTrayIcon]          = None
         self._timer            : Optional[QTimer]                  = None
@@ -131,8 +132,9 @@ class UpdateManager(QObject):
         mgr._setup_timer()
 
         if mgr._auto_update:
-            # Delay the first check so the app's own UI can finish loading
-            QTimer.singleShot(3000, mgr.check_for_updates)
+            # Delay the first check so the app's own UI can finish loading.
+            # manual=False so no notification is shown when already up to date.
+            QTimer.singleShot(3000, lambda: mgr.check_for_updates(manual=False))
 
         logger.info(
             f"UpdateManager ready | version={mgr._current_version} | "
@@ -145,7 +147,7 @@ class UpdateManager(QObject):
     def _setup_tray(self) -> None:
         try:
             self._tray = UpdateTrayIcon()
-            self._tray.check_updates_requested.connect(self.check_for_updates)
+            self._tray.check_updates_requested.connect(lambda: self.check_for_updates(manual=True))
             self._tray.download_update_requested.connect(self._open_download_window)
             self._tray.restart_requested.connect(self._do_install)
             self._tray.exit_requested.connect(QApplication.quit)
@@ -163,15 +165,18 @@ class UpdateManager(QObject):
 
     # ── Update check (public + scheduled) ─────────────────────────────────────
 
-    def check_for_updates(self) -> None:
+    def check_for_updates(self, manual: bool = False) -> None:
         """
         Spawn a background thread to query GitHub.
         Results are delivered back to the main thread via ``_check_result``.
+        Pass manual=True when triggered by the user so an 'Up to Date'
+        notification is shown; auto/periodic checks are silent when up to date.
         """
         if self._repo == "username/repo":
             logger.warning("GITHUB_REPO is not configured — skipping update check")
             return
 
+        self._manual_check = manual
         logger.info(f"Checking for updates… (current={self._current_version})")
         threading.Thread(
             target=self._check_worker,
@@ -196,7 +201,7 @@ class UpdateManager(QObject):
         """Runs on the main thread — safe to update UI."""
         if not available or release is None:
             logger.info("No update available")
-            if self._tray:
+            if self._manual_check and self._tray:
                 self._tray.notify(
                     "Up to Date",
                     f"You are running the latest version ({self._current_version})",
@@ -324,4 +329,4 @@ class UpdateManager(QObject):
 
     def manual_check(self) -> None:
         """Convenience alias — trigger an update check programmatically."""
-        self.check_for_updates()
+        self.check_for_updates(manual=True)

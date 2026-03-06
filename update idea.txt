@@ -53,6 +53,13 @@ Allow users to choose:
     Prompted updates (ask before replacing).
     Manual updates (disable auto-check).
 
+UI Integration
+    Add a small update notification in the app UI (e.g., “New version available: v0.0.3”).
+    Include a changelog popup so users know what’s new.
+
+Telemetry & Logging
+    Log update attempts, successes, and failures.
+    Helps diagnose issues and improve reliability.
 
 
 from updater import UpdateManager

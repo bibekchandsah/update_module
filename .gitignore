@@ -3,3 +3,6 @@ dist
 update.log
 updates
 __pycache__
+update.log.*
+__pycache__/
+*.pyc
